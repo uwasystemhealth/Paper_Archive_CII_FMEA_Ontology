@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/asset"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/asset">
+    <Prefix name="" IRI="http://www.semanticweb.org/asset"/>
+    <Prefix name="fso" IRI="http://www.semanticweb.org/functional-system-ontology/"/>
+    <Prefix name="lis" IRI="http://standards.iso.org/iso/15926/part14/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="fmea" IRI="http://www.semanticweb.org/fmea-iso/"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="asset" IRI="http://www.semanticweb.org/asset/"/>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Disposition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Function"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:FunctionalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:InformationObject"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:System"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Chamber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/CollectionChamber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/CondensateSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/CoolingDoor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/DrainPipe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/EmergencyDoorsSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureDueToEarthFault"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureDueToOvercurrent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureDueToShortCircuit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Fan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Filter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/HeatExchanger"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Heater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/HeaterSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/HeatingAttemptAndNoHeat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/HeatingAttemptAndPartialHeat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/HeatingProcess"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/LeakageSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ObservationOfEarthFault"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ObservationOfOvercurrent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ObservationOfShortCircuit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sump"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TerminalBoxCables"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/VentilationSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:FailureEffect"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:FailureEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:FinalFailureEffect"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:FunctionalFailure"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:Malfunction"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fmea:ObservationOfOvercurrent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fso:AncillarySystem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fso:Component"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fso:Process"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:causes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:representedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="fmea:hasMalfunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="fmea:resultsIn"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="/Chamber"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/CollectionChamber"/>
+        <Class IRI="/Chamber"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/CondensateSystem"/>
+        <Class abbreviatedIRI="lis:System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/CoolingDoor"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/DrainPipe"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/EmergencyDoorsSystem"/>
+        <Class abbreviatedIRI="lis:System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FailureDueToEarthFault"/>
+        <Class abbreviatedIRI="fmea:FailureEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FailureDueToOvercurrent"/>
+        <Class abbreviatedIRI="fmea:FailureEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FailureDueToShortCircuit"/>
+        <Class abbreviatedIRI="fmea:FailureEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Fan"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Filter"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatExchanger"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Heater"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeaterSystem"/>
+        <Class abbreviatedIRI="lis:System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatingAttemptAndNoHeat"/>
+        <Class IRI="/HeatingProcess"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatingAttemptAndNoHeat"/>
+        <Class abbreviatedIRI="fmea:FailureEffect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatingAttemptAndPartialHeat"/>
+        <Class IRI="/HeatingProcess"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatingAttemptAndPartialHeat"/>
+        <Class abbreviatedIRI="fmea:FailureEffect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/HeatingProcess"/>
+        <Class abbreviatedIRI="fso:Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/LeakageSystem"/>
+        <Class abbreviatedIRI="lis:System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ObservationOfEarthFault"/>
+        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ObservationOfOvercurrent"/>
+        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ObservationOfShortCircuit"/>
+        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sump"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TerminalBoxCables"/>
+        <Class abbreviatedIRI="fso:Component"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/VentilationSystem"/>
+        <Class abbreviatedIRI="lis:System"/>
+    </SubClassOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Chamber</IRI>
+        <Literal>Chamber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/CollectionChamber</IRI>
+        <Literal>Collection chamber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/CondensateSystem</IRI>
+        <Literal>Condensate System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/CoolingDoor</IRI>
+        <Literal>Cooling door</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/DrainPipe</IRI>
+        <Literal>Drain pipe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/EmergencyDoorsSystem</IRI>
+        <Literal>Emergency Doors System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Fan</IRI>
+        <Literal>Fan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Filter</IRI>
+        <Literal>Filter </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/HeatExchanger</IRI>
+        <Literal>Heat exchanger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Heater</IRI>
+        <Literal>Heater</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/HeaterSystem</IRI>
+        <Literal>Heater System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/HeatingAttemptAndNoHeat</IRI>
+        <Literal>Heating attempt and no heat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/HeatingAttemptAndPartialHeat</IRI>
+        <Literal>Heating attempt and partial heat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/HeatingProcess</IRI>
+        <Literal>Heating Process</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/LeakageSystem</IRI>
+        <Literal>Leakage System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ObservationOfEarthFault</IRI>
+        <Literal>&apos;Observation of earth fault&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ObservationOfOvercurrent</IRI>
+        <Literal>&apos;Observation of over current&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ObservationOfShortCircuit</IRI>
+        <Literal>&apos;Observation of short circuit&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Sump</IRI>
+        <Literal>Sump</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/TerminalBoxCables</IRI>
+        <Literal>Terminal box &amp; cables</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/VentilationSystem</IRI>
+        <Literal>Ventilation System</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

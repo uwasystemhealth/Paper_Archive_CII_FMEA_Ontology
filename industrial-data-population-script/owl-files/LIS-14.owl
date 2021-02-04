@@ -1,0 +1,1353 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://standards.iso/iso/15926/part14"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://standards.iso/iso/15926/part14"
+     versionIRI="http://standards.iso/iso/15926/part14/1.0">
+    <Prefix name="" IRI="http://standards.iso.org/iso/15926/part14"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="lis" IRI="http://standards.iso.org/iso/15926/part14/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="pav" IRI="http://purl.org/pav/"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>The ISO 15926-14 upper ontology is an OWL 2 DL rendering of the ISO 15926-2 data model.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal>ISO 15926-14 upper ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal>Revised 2019-03-25</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="/Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Aspect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Compound"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Disposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Function"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FunctionalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/InanimatePhysicalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/InformationObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Location"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Object"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Organism"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PeriodInTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Phase"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PhysicalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PhysicalQuantity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PointInSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PointInTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Quality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/QuantityDatum"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/RegionInSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Role"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ScalarQuantityDatum"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Scale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Site"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SpatialLocation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Stream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/System"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/UnitOfMeasure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/activityBoundOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/activityPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/after"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/approvedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/arrangedPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/assembledPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/before"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/begins"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/causes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/connectedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/containedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/contains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/createdBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/creates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/datumUOM"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/directlyConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/ends"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/featureOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/functionalPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasActivityBound"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasActivityPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasAssembledPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasBeginning"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasDisposition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasEnding"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasFunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasFunctionalPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasInstalled"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasPhysicalQuantity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasQuality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/installedAs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/interests"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/locatedRelativeTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/occursRelativeTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/partOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/participantIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/qualityQuantifiedAs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/realizedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/representedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/roleOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/approvedOn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/datumValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/qualityQuantityValue"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:example"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:note"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="rdf:PlainLiteral"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="/Compound"/>
+        <Class IRI="/PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Disposition"/>
+        <Class IRI="/Aspect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Event"/>
+        <Class IRI="/Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Feature"/>
+        <Class IRI="/PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Function"/>
+        <Class IRI="/Disposition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FunctionalObject"/>
+        <Class IRI="/Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FunctionalObject"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/functionalPartOf"/>
+            <Class IRI="/System"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FunctionalObject"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasFunction"/>
+            <Class IRI="/Function"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/InanimatePhysicalObject"/>
+        <Class IRI="/PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/InformationObject"/>
+        <Class IRI="/Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Location"/>
+        <Class IRI="/Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Organism"/>
+        <Class IRI="/PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Organization"/>
+        <Class IRI="/Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PeriodInTime"/>
+        <Class IRI="/Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Person"/>
+        <Class IRI="/Organism"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Phase"/>
+        <Class IRI="/InanimatePhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PhysicalObject"/>
+        <Class IRI="/Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PhysicalQuantity"/>
+        <Class IRI="/Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PointInSpace"/>
+        <Class IRI="/SpatialLocation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PointInTime"/>
+        <Class IRI="/Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Quality"/>
+        <Class IRI="/Aspect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/QuantityDatum"/>
+        <Class IRI="/InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/RegionInSpace"/>
+        <Class IRI="/SpatialLocation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Role"/>
+        <Class IRI="/Aspect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ScalarQuantityDatum"/>
+        <Class IRI="/QuantityDatum"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ScalarQuantityDatum"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/datumUOM"/>
+            <Class IRI="/UnitOfMeasure"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ScalarQuantityDatum"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="/datumValue"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Scale"/>
+        <Class IRI="/UnitOfMeasure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Site"/>
+        <Class IRI="/Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SpatialLocation"/>
+        <Class IRI="/Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Stream"/>
+        <Class IRI="/InanimatePhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/System"/>
+        <Class IRI="/FunctionalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/System"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasFunctionalPart"/>
+            <Class IRI="/FunctionalObject"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/UnitOfMeasure"/>
+        <Class IRI="/InformationObject"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="/Activity"/>
+        <Class IRI="/Aspect"/>
+        <Class IRI="/Object"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/activityBoundOf"/>
+        <ObjectProperty IRI="/activityPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/activityPartOf"/>
+        <ObjectProperty IRI="/partOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/after"/>
+        <ObjectProperty IRI="/occursRelativeTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/approvedBy"/>
+        <ObjectProperty IRI="/interests"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/arrangedPartOf"/>
+        <ObjectProperty IRI="/partOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/assembledPartOf"/>
+        <ObjectProperty IRI="/arrangedPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/before"/>
+        <ObjectProperty IRI="/occursRelativeTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/begins"/>
+        <ObjectProperty IRI="/activityBoundOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/causes"/>
+        <ObjectProperty IRI="/before"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/containedBy"/>
+        <ObjectProperty IRI="/locatedRelativeTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/contains"/>
+        <ObjectProperty IRI="/locatedRelativeTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/directlyConnectedTo"/>
+        <ObjectProperty IRI="/connectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/ends"/>
+        <ObjectProperty IRI="/activityBoundOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/featureOf"/>
+        <ObjectProperty IRI="/arrangedPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/functionalPartOf"/>
+        <ObjectProperty IRI="/partOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasActivityBound"/>
+        <ObjectProperty IRI="/hasActivityPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasActivityPart"/>
+        <ObjectProperty IRI="/hasPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+        <ObjectProperty IRI="/hasPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasAssembledPart"/>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasBeginning"/>
+        <ObjectProperty IRI="/hasActivityBound"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasEnding"/>
+        <ObjectProperty IRI="/hasActivityBound"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasFeature"/>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasFunction"/>
+        <ObjectProperty IRI="/hasDisposition"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasFunctionalPart"/>
+        <ObjectProperty IRI="/hasPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasPhysicalQuantity"/>
+        <ObjectProperty IRI="/hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/qualityQuantifiedAs"/>
+        <ObjectProperty IRI="/representedBy"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/activityBoundOf"/>
+        <ObjectProperty IRI="/hasActivityBound"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/activityPartOf"/>
+        <ObjectProperty IRI="/hasActivityPart"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/arrangedPartOf"/>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/assembledPartOf"/>
+        <ObjectProperty IRI="/hasAssembledPart"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/begins"/>
+        <ObjectProperty IRI="/hasBeginning"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/containedBy"/>
+        <ObjectProperty IRI="/contains"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/createdBy"/>
+        <ObjectProperty IRI="/creates"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/ends"/>
+        <ObjectProperty IRI="/hasEnding"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/featureOf"/>
+        <ObjectProperty IRI="/hasFeature"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/functionalPartOf"/>
+        <ObjectProperty IRI="/hasFunctionalPart"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasInstalled"/>
+        <ObjectProperty IRI="/installedAs"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasPart"/>
+        <ObjectProperty IRI="/partOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasParticipant"/>
+        <ObjectProperty IRI="/participantIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasRole"/>
+        <ObjectProperty IRI="/roleOf"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/datumUOM"/>
+    </FunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="/connectedTo"/>
+    </SymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/connectedTo"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/contains"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/creates"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/datumUOM"/>
+        <Class IRI="/QuantityDatum"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/functionalPartOf"/>
+        <Class IRI="/FunctionalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasActivityPart"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasArrangedPart"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasParticipant"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/installedAs"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/occursRelativeTo"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/qualityQuantifiedAs"/>
+        <Class IRI="/Quality"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/realizedIn"/>
+        <ObjectUnionOf>
+            <Class IRI="/Disposition"/>
+            <Class IRI="/Role"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/contains"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/creates"/>
+        <Class IRI="/PhysicalObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/datumUOM"/>
+        <Class IRI="/UnitOfMeasure"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/functionalPartOf"/>
+        <Class IRI="/System"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasActivityPart"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasDisposition"/>
+        <Class IRI="/Disposition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasFunction"/>
+        <Class IRI="/Function"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasQuality"/>
+        <Class IRI="/Quality"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasRole"/>
+        <Class IRI="/Role"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/installedAs"/>
+        <Class IRI="/FunctionalObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/occursRelativeTo"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/qualityQuantifiedAs"/>
+        <Class IRI="/QuantityDatum"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/realizedIn"/>
+        <Class IRI="/Activity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/representedBy"/>
+        <Class IRI="/InformationObject"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Activity</IRI>
+        <Literal>Activity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Aspect</IRI>
+        <Literal>Aspect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Compound</IRI>
+        <Literal>Compound</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Disposition</IRI>
+        <Literal>Inspired by the BFO class &quot;disposition&quot; (BFO_0000016).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Disposition</IRI>
+        <Literal>Disposition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Event</IRI>
+        <Literal>Event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Feature</IRI>
+        <Literal>Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Function</IRI>
+        <Literal>Inspired by the BFO class &quot;function&quot; (BFO_0000034).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Function</IRI>
+        <Literal>Function</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/FunctionalObject</IRI>
+        <Literal>A functional object is part of a system, and has a function whose realisation contributes to the performance of the system as a whole.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FunctionalObject</IRI>
+        <Literal>FunctionalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:example"/>
+        <IRI>/FunctionalObject</IRI>
+        <Literal>An item on a Process Flow Diagram (PFD) or Process and Instrumentation Diagram (P&amp;ID) should be classified as a FunctionalObject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:note"/>
+        <IRI>/FunctionalObject</IRI>
+        <Literal>A class of artefacts such as Pump is not a subclass of FunctionalObject: a pump that is not in service is not part of a system. However, an individual functional location should in general be given some high-level artefact classification in addition to its description as part of a system.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/InanimatePhysicalObject</IRI>
+        <Literal>InanimatePhysicalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/InformationObject</IRI>
+        <Literal>InformationObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Location</IRI>
+        <Literal>Location</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Object</IRI>
+        <Literal>Object</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Organism</IRI>
+        <Literal>Organism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Organization</IRI>
+        <Literal>Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PeriodInTime</IRI>
+        <Literal>PeriodInTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Person</IRI>
+        <Literal>Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Phase</IRI>
+        <Literal>Phase</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PhysicalObject</IRI>
+        <Literal>PhysicalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PhysicalQuantity</IRI>
+        <Literal>PhysicalQuantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PointInSpace</IRI>
+        <Literal>PointInSpace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PointInTime</IRI>
+        <Literal>PointInTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Quality</IRI>
+        <Literal>Quality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/QuantityDatum</IRI>
+        <Literal>This class is inspired by the class &quot;measurement datum&quot; of the Information Artefact Ontology. The change of wording from &quot;measurement&quot; to &quot;quantity&quot; is intended to support cases where measurement is not involved, such as with nominal values.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/QuantityDatum</IRI>
+        <Literal>QuantityDatum</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/RegionInSpace</IRI>
+        <Literal>RegionInSpace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Role</IRI>
+        <Literal>This class is motivated in the Part 2 &apos;role&apos; entity type, and in the same-named BFO class. Part 2 is not very specific about the meaning of roles, but the examples are clear enough. There is still much disagreement in the ontology field about how roles should be understood and modelled.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Role</IRI>
+        <Literal>Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ScalarQuantityDatum</IRI>
+        <Literal>A scalar quantity datum has a unique unit of measure and a unique numeric value. This class is inspired by the class &quot;scalar measurement datum&quot; of the Information Artefact Ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ScalarQuantityDatum</IRI>
+        <Literal>ScalarQuantityDatum</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Scale</IRI>
+        <Literal>Scale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Site</IRI>
+        <Literal>From BFO: &quot;b is a site means: b is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part thereof. (axiom label in BFO2 Reference: [034-002])&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Site</IRI>
+        <Literal>This class is inspired by the class &quot;site&quot; of the Information Artefact Ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Site</IRI>
+        <Literal>Site</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/SpatialLocation</IRI>
+        <Literal>SpatialLocation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Stream</IRI>
+        <Literal>Stream</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/System</IRI>
+        <Literal>A system is a complex of functional parts working together. Each part contributes to the realisation of the system&apos;s function (though not necessarily every part in every performance of the system).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/System</IRI>
+        <Literal>System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:note"/>
+        <IRI>/System</IRI>
+        <Literal>A functional location that does not itself have functional parts is not a system.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/UnitOfMeasure</IRI>
+        <Literal>UnitOfMeasure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/activityBoundOf</IRI>
+        <Literal>activityBoundOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/activityPartOf</IRI>
+        <Literal>activityPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/after</IRI>
+        <Literal>Use this relation to state that one activity after before another.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/after</IRI>
+        <Literal>after</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/approvedBy</IRI>
+        <Literal>Relation for stating that some item or activity was approved by an entity, typically a person or an organisation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/approvedBy</IRI>
+        <Literal>approvedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/approvedOn</IRI>
+        <Literal>This is a super-property for stating the time that an entity was approved, derived from Part 2 &quot;approval&quot;. Introduce sub-properties to match different contexts and types of approval. The range of sub-properties should be xsd:date or xsd:dateTime.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/approvedOn</IRI>
+        <Literal>approvedOn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/arrangedPartOf</IRI>
+        <Literal>arrangedPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/assembledPartOf</IRI>
+        <Literal>assembledPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/before</IRI>
+        <Literal>Use this relation to state that one activity occurs before another.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/before</IRI>
+        <Literal>before</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/begins</IRI>
+        <Literal>begins</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/causes</IRI>
+        <Literal>causes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/connectedTo</IRI>
+        <Literal>connectedTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/containedBy</IRI>
+        <Literal>containedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/contains</IRI>
+        <Literal>For the DL profile, we restrict this relation to physical objects. Note that this rules out using &quot;lis:contains&quot; for spatial locations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/contains</IRI>
+        <Literal>contains</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/createdBy</IRI>
+        <Literal>createdBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/creates</IRI>
+        <Literal>Use this relation to express that an activity brings a physical object into being. (Derived from class_of_cause_of_beginning_of_class_of_individual in Part 2).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/creates</IRI>
+        <Literal>creates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/datumUOM</IRI>
+        <Literal>Relation (functional) to assign unit of measure to measurement data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/datumUOM</IRI>
+        <Literal>datumUOM</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/datumValue</IRI>
+        <Literal>This relation is inspired by the relation &quot;has measurement value&quot; of the Information Artefact Ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/datumValue</IRI>
+        <Literal>datumValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/directlyConnectedTo</IRI>
+        <Literal>directlyConnectedTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ends</IRI>
+        <Literal>ends</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/featureOf</IRI>
+        <Literal>featureOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/functionalPartOf</IRI>
+        <Literal>Where x is a functional part of a system y, the realisation of one or more functions of x contributes to the performance of y.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/functionalPartOf</IRI>
+        <Literal>functionalPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>/functionalPartOf</IRI>
+        <Literal>lis:FunctionalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasActivityBound</IRI>
+        <Literal>hasActivityBound</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasActivityPart</IRI>
+        <Literal>hasActivityPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasArrangedPart</IRI>
+        <Literal>In line with intended use, for the DL profile this relation has a domain restricted to physical objects.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasArrangedPart</IRI>
+        <Literal>hasArrangedPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasAssembledPart</IRI>
+        <Literal>This is the recommended (super-) relation for capturing physical breakdown of mechanical assemblies.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasAssembledPart</IRI>
+        <Literal>hasAssembledPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasBeginning</IRI>
+        <Literal>hasBeginning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasDisposition</IRI>
+        <Literal>Inspired by BFO&apos;s &quot;has disposition&quot; (RO_0000091).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasDisposition</IRI>
+        <Literal>hasDisposition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasEnding</IRI>
+        <Literal>hasEnding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasFeature</IRI>
+        <Literal>Example of usage: stating that an entity has a surface suitable for connection, such as a flange face.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasFeature</IRI>
+        <Literal>hasFeature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasFunction</IRI>
+        <Literal>Inspired by BFO&apos;s &quot;has function&quot; (RO_0000085).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasFunction</IRI>
+        <Literal>hasFunction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasFunctionalPart</IRI>
+        <Literal>hasFunctionalPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasInstalled</IRI>
+        <Literal>hasInstalled</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasPart</IRI>
+        <Literal>hasPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasParticipant</IRI>
+        <Literal>Note that BFO does not have &apos;has participant&apos; as a subrelation of &apos;has part&apos;. This can be motivated in that 4D objects, here members of Activity, are at least not obviously able to have 3D parts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasParticipant</IRI>
+        <Literal>This is the recommended superrelation for types of participation by entities in activities -- the agent, the matter being acted upon, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasParticipant</IRI>
+        <Literal>hasParticipant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasPhysicalQuantity</IRI>
+        <Literal>hasPhysicalQuantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasQuality</IRI>
+        <Literal>hasQuality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasRole</IRI>
+        <Literal>Inspired by BFO&apos;s &quot;has role&quot; (RO_0000087)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasRole</IRI>
+        <Literal>hasRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/installedAs</IRI>
+        <Literal>installedAs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/interests</IRI>
+        <Literal>Derived from &quot;LifecycleStage&quot; of Part 2, this is a superproperty suitable for various intentional relationships, such as planning, approving, or ordering. The Part 2 name &quot;lifecycle stage&quot; is likely to confuse, but the intended use of this type is clear enough from this Part 2 annotation to ClassOfLifecycleStage: &quot;EXAMPLE Planned, required, expected, and proposed can be represented by instances of [class_of_lifecycle_stage].&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/interests</IRI>
+        <Literal>interests</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/locatedRelativeTo</IRI>
+        <Literal>locatedRelativeTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/occursRelativeTo</IRI>
+        <Literal>This relation is introduced for the DL profile as a top relation for various temporal relations between activities.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/occursRelativeTo</IRI>
+        <Literal>occursRelativeTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/partOf</IRI>
+        <Literal>partOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/participantIn</IRI>
+        <Literal>participantIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/qualityQuantifiedAs</IRI>
+        <Literal>This relation is inspired by the relation &quot;is quality measured as&quot; of the Information Artefact Ontology. The term &quot;quantified&quot; replaces &quot;measured&quot; to support cases where measurement is not involved, as in e.g. estimates.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/qualityQuantifiedAs</IRI>
+        <Literal>qualityQuantifiedAs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/qualityQuantityValue</IRI>
+        <Literal>This is a super-property for &quot;shortcut&quot; relations that combine a quality, the weak lis:qualityQuantifiedAs, and a unit of measure into a simple data property. For instance, &quot;mass in kilograms&quot; can be introduced as such a data property, for expressing the mass of an entity on the kilogram scale. lis:qualityQuantifiedAs is weak in the sense that it doesn&apos;t distinguish between designed or estimated, and measured, values.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/qualityQuantityValue</IRI>
+        <Literal>qualityQuantityValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/realizedIn</IRI>
+        <Literal>Inspired by BFO&apos;s &quot;realized in&quot; (BFO_0000054)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/realizedIn</IRI>
+        <Literal>realizedIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/representedBy</IRI>
+        <Literal>Following Part 2, this is the top level relation from information objects to things.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/representedBy</IRI>
+        <Literal>representedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>/representedBy</IRI>
+        <Literal>Also see &quot;is about&quot; IAO_0000136 of the Information Artifact Ontology, which is probably better named for a maximally general relation of &quot;aboutness&quot; (but note that &quot;is about&quot; goes in the opposite direction of &quot;representedIn&quot;).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/roleOf</IRI>
+        <Literal>Inspired by BFO&apos;s &quot;role of&quot; (RO_0000081)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/roleOf</IRI>
+        <Literal>roleOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:definition</AbbreviatedIRI>
+        <Literal>This SKOS relation replaces the Part 2 &quot;definition&quot; attribute.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>skos:definition</AbbreviatedIRI>
+        <Literal>definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:example</AbbreviatedIRI>
+        <Literal>This SKOS relation replaces the Part 2 &quot;example&quot; attribute.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>skos:example</AbbreviatedIRI>
+        <Literal>example</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:note</AbbreviatedIRI>
+        <Literal>This SKOS relation replaces the Part 2 &quot;description&quot; attribute.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>skos:note</AbbreviatedIRI>
+        <Literal>note</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

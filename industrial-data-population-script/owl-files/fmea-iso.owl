@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/fmea-iso"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/fmea-iso">
+    <Prefix name="" IRI="http://www.semanticweb.org/fmea-iso"/>
+    <Prefix name="fso" IRI="http://www.semanticweb.org/functional-system-ontology/"/>
+    <Prefix name="lis" IRI="http://standards.iso.org/iso/15926/part14/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="asset" IRI="http://www.semanticweb.org/asset/"/>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Disposition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:Function"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:FunctionalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:InformationObject"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="lis:System"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ComponentFunction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureEffect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FailureModeObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FinalFailureEffect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/FunctionalFailure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Malfunction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ObjectInFaultState"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PrimaryFunction"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fso:Component"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="fso:Process"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:causes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="lis:representedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasMalfunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/resultsIn"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="/ComponentFunction"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="lis:Function"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
+                <Class abbreviatedIRI="fso:Process"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/FailureEvent"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
+                <Class abbreviatedIRI="fso:Component"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/resultsIn"/>
+                <Class IRI="/FunctionalFailure"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/FunctionalFailure"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="lis:representedBy"/>
+                <Class IRI="/FailureModeObservation"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/resultsIn"/>
+                <Class IRI="/FailureEffect"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="/FailureEffect"/>
+        <Class abbreviatedIRI="fso:Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FailureEvent"/>
+        <Class abbreviatedIRI="fso:Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FailureModeObservation"/>
+        <Class abbreviatedIRI="lis:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FinalFailureEffect"/>
+        <Class IRI="/FailureEffect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/FunctionalFailure"/>
+        <Class abbreviatedIRI="fso:Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Malfunction"/>
+        <Class abbreviatedIRI="lis:Disposition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Malfunction"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
+            <Class IRI="/FailureEvent"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ObjectInFaultState"/>
+        <Class abbreviatedIRI="lis:FunctionalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PrimaryFunction"/>
+        <Class IRI="/ComponentFunction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
+            <Class IRI="/ObjectInFaultState"/>
+        </ObjectSomeValuesFrom>
+        <Class IRI="/ObjectInFaultState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasMalfunction"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+        <Class IRI="/ObjectInFaultState"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasMalfunction"/>
+        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/resultsIn"/>
+        <ObjectProperty abbreviatedIRI="lis:causes"/>
+    </SubObjectPropertyOf>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="/resultsIn"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasMalfunction"/>
+        <Class abbreviatedIRI="lis:FunctionalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasMalfunction"/>
+        <Class IRI="/Malfunction"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ComponentFunction</IRI>
+        <Literal>Component Function</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/FailureEffect</IRI>
+        <Literal>Consequence of a failure mode in terms of operations, function or statusof the item (IEC 60812:2006)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FailureEffect</IRI>
+        <Literal>FailureEffect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FailureEvent</IRI>
+        <Literal>FailureEvent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FailureModeObservation</IRI>
+        <Literal>FailureModeObservation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FinalFailureEffect</IRI>
+        <Literal>Final Failure Effect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/FunctionalFailure</IRI>
+        <Literal>FunctionalFailure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Malfunction</IRI>
+        <Literal>Malfunction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ObjectInFaultState</IRI>
+        <Literal>After failure the item has a fault. Failure is an event as distinguished from fault which is a state</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ObjectInFaultState</IRI>
+        <Literal>Object in Fault State</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PrimaryFunction</IRI>
+        <Literal>PrimaryFunction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/resultsIn</IRI>
+        <Literal>A transitive subclass of &quot;LCI: causes&quot;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/resultsIn</IRI>
+        <Literal>resultsIn</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

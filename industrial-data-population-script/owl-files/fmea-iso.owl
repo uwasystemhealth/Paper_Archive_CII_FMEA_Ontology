@@ -1,272 +1,286 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/fmea-iso"
+<rdf:RDF xmlns="http://www.semanticweb.org/fmea-iso/"
+     xml:base="http://www.semanticweb.org/fmea-iso/"
+     xmlns:fso="http://www.semanticweb.org/functional-system-ontology/"
+     xmlns:lis="http://standards.iso.org/iso/15926/part14/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pav="http://purl.org/pav/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/fmea-iso">
-    <Prefix name="" IRI="http://www.semanticweb.org/fmea-iso"/>
-    <Prefix name="fso" IRI="http://www.semanticweb.org/functional-system-ontology/"/>
-    <Prefix name="lis" IRI="http://standards.iso.org/iso/15926/part14/"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="asset" IRI="http://www.semanticweb.org/asset/"/>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Activity"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Disposition"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Function"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:FunctionalObject"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:InformationObject"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:System"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ComponentFunction"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureEffect"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureEvent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureModeObservation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FinalFailureEffect"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FunctionalFailure"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Malfunction"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ObjectInFaultState"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/PrimaryFunction"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fso:Component"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fso:Process"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:causes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:representedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/hasMalfunction"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/resultsIn"/>
-    </Declaration>
-    <EquivalentClasses>
-        <Class IRI="/ComponentFunction"/>
-        <ObjectIntersectionOf>
-            <Class abbreviatedIRI="lis:Function"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
-                <Class abbreviatedIRI="fso:Process"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="/FailureEvent"/>
-        <ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
-                <Class abbreviatedIRI="fso:Component"/>
-            </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="/resultsIn"/>
-                <Class IRI="/FunctionalFailure"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="/FunctionalFailure"/>
-        <ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI="lis:representedBy"/>
-                <Class IRI="/FailureModeObservation"/>
-            </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="/resultsIn"/>
-                <Class IRI="/FailureEffect"/>
-            </ObjectSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <SubClassOf>
-        <Class IRI="/FailureEffect"/>
-        <Class abbreviatedIRI="fso:Process"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FailureEvent"/>
-        <Class abbreviatedIRI="fso:Process"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FailureModeObservation"/>
-        <Class abbreviatedIRI="lis:InformationObject"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FinalFailureEffect"/>
-        <Class IRI="/FailureEffect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FunctionalFailure"/>
-        <Class abbreviatedIRI="fso:Process"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Malfunction"/>
-        <Class abbreviatedIRI="lis:Disposition"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Malfunction"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
-            <Class IRI="/FailureEvent"/>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/ObjectInFaultState"/>
-        <Class abbreviatedIRI="lis:FunctionalObject"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/PrimaryFunction"/>
-        <Class IRI="/ComponentFunction"/>
-    </SubClassOf>
-    <SubClassOf>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
-            <Class IRI="/ObjectInFaultState"/>
-        </ObjectSomeValuesFrom>
-        <Class IRI="/ObjectInFaultState"/>
-    </SubClassOf>
-    <SubClassOf>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="/hasMalfunction"/>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
-                <Class abbreviatedIRI="owl:Thing"/>
-            </ObjectSomeValuesFrom>
-        </ObjectSomeValuesFrom>
-        <Class IRI="/ObjectInFaultState"/>
-    </SubClassOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="/hasMalfunction"/>
-        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="/resultsIn"/>
-        <ObjectProperty abbreviatedIRI="lis:causes"/>
-    </SubObjectPropertyOf>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="/resultsIn"/>
-    </TransitiveObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="/hasMalfunction"/>
-        <Class abbreviatedIRI="lis:FunctionalObject"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="/hasMalfunction"/>
-        <Class IRI="/Malfunction"/>
-    </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/ComponentFunction</IRI>
-        <Literal>Component Function</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/FailureEffect</IRI>
-        <Literal>Consequence of a failure mode in terms of operations, function or statusof the item (IEC 60812:2006)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/FailureEffect</IRI>
-        <Literal>FailureEffect</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/FailureEvent</IRI>
-        <Literal>FailureEvent</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/FailureModeObservation</IRI>
-        <Literal>FailureModeObservation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/FinalFailureEffect</IRI>
-        <Literal>Final Failure Effect</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/FunctionalFailure</IRI>
-        <Literal>FunctionalFailure</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Malfunction</IRI>
-        <Literal>Malfunction</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/ObjectInFaultState</IRI>
-        <Literal>After failure the item has a fault. Failure is an event as distinguished from fault which is a state</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/ObjectInFaultState</IRI>
-        <Literal>Object in Fault State</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/PrimaryFunction</IRI>
-        <Literal>PrimaryFunction</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/resultsIn</IRI>
-        <Literal>A transitive subclass of &quot;LCI: causes&quot;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/resultsIn</IRI>
-        <Literal>resultsIn</Literal>
-    </AnnotationAssertion>
-</Ontology>
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:asset="http://www.semanticweb.org/asset/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/fmea-iso"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/causes -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/causes"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/hasDisposition -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/hasDisposition"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/hasFunctionalPart -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/hasFunctionalPart"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/hasParticipant"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/realizedIn -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/realizedIn"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/representedBy -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/representedBy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/hasMalfunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fmea-iso/hasMalfunction">
+        <rdfs:subPropertyOf rdf:resource="http://standards.iso.org/iso/15926/part14/hasDisposition"/>
+        <rdfs:domain rdf:resource="http://standards.iso.org/iso/15926/part14/FunctionalObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fmea-iso/Malfunction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/resultsIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fmea-iso/resultsIn">
+        <rdfs:subPropertyOf rdf:resource="http://standards.iso.org/iso/15926/part14/causes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment>A transitive subclass of &quot;LCI: causes&quot;.</rdfs:comment>
+        <rdfs:label>resultsIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/Disposition -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/Disposition"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/Function -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/Function"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/FunctionalObject -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/FunctionalObject"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/InformationObject -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/InformationObject"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/ComponentFunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/ComponentFunction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://standards.iso.org/iso/15926/part14/Function"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/realizedIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/functional-system-ontology/Process"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:label>Component Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureEffect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureEffect">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Process"/>
+        <rdfs:comment>Consequence of a failure mode in terms of operations, function or statusof the item (IEC 60812:2006)</rdfs:comment>
+        <rdfs:label>FailureEffect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureEvent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/hasParticipant"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/fmea-iso/resultsIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fmea-iso/FunctionalFailure"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Process"/>
+        <rdfs:label>FailureEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureModeObservation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureModeObservation">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/InformationObject"/>
+        <rdfs:label>FailureModeObservation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FinalFailureEffect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FinalFailureEffect">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEffect"/>
+        <rdfs:label>Final Failure Effect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FunctionalFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FunctionalFailure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/representedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fmea-iso/FailureModeObservation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/fmea-iso/resultsIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEffect"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Process"/>
+        <rdfs:label>FunctionalFailure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/Malfunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/Malfunction">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/Disposition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/realizedIn"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Malfunction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/ObjectInFaultState -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/ObjectInFaultState">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/FunctionalObject"/>
+        <rdfs:comment>After failure the item has a fault. Failure is an event as distinguished from fault which is a state</rdfs:comment>
+        <rdfs:label>Object in Fault State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/PrimaryFunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/PrimaryFunction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/ComponentFunction"/>
+        <rdfs:label>PrimaryFunction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/functional-system-ontology/Component -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/functional-system-ontology/Component"/>
+    
+
+
+    <!-- http://www.semanticweb.org/functional-system-ontology/Process -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/functional-system-ontology/Process"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/hasFunctionalPart"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fmea-iso/ObjectInFaultState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/ObjectInFaultState"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/fmea-iso/hasMalfunction"/>
+        <owl:someValuesFrom>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://standards.iso.org/iso/15926/part14/realizedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:someValuesFrom>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/ObjectInFaultState"/>
+    </owl:Restriction>
+</rdf:RDF>
 
 
 

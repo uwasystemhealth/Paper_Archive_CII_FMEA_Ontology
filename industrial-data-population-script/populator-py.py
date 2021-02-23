@@ -12,16 +12,15 @@ def load_ontology_modules():
     onto_path.append("./owl-files")
     model_asset = get_ontology("asset.owl").load()
     model_fmea_iso = get_ontology("fmea-iso.owl").load()
-    model_functional_system = get_ontology("functional-system.owl").load()
+    model_functional_system = get_ontology("functional-system-ontology.owl").load()
     model_iso = get_ontology("LIS-14.owl").load()
     return model_asset, model_fmea_iso, model_functional_system, model_iso
 
 
 def arrange_import_structure():
-    model_asset.imported_ontologies.append(model_iso)
-    model_fmea_iso.imported_ontologies.append(model_functional_system)
     model_asset.imported_ontologies.append(model_fmea_iso)
-    model_asset.imported_ontologies.append(model_iso)
+    model_fmea_iso.imported_ontologies.append(model_functional_system)
+    model_functional_system.imported_ontologies.append(model_iso)
 
 
 def read_industry_data(component_hierarchy_file_name, component_hierarchy_sheet_name, fmea_file_name, fmea_sheet_name):

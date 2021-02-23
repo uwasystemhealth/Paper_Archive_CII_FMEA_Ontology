@@ -1,41 +1,181 @@
 @prefix : <http://standards.iso.org/iso/15926/part14#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix lis: <http://standards.iso.org/iso/15926/part14/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix lis2: <http://rds.posccaesar.org/2008/02/OWL/ISO-15926-2_2003#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lis12: <http://standards.iso.org/iso/15926/ontology/life-cycle-integration/> .
 @base <http://standards.iso.org/iso/15926/part14> .
 
 <http://standards.iso.org/iso/15926/part14> rdf:type owl:Ontology ;
-                                             owl:versionIRI <http://standards.iso.org/iso/15926/part14/1.0> ;
+                                             owl:versionIRI <http://standards.iso.org/iso/15926/part14/1.1> ;
+                                             pav:previousVersion <http://standards.iso.org/iso/15926/part14/1.0> ;
                                              rdfs:comment "The ISO 15926-14 upper ontology is an OWL 2 DL rendering of the ISO 15926-2 data model." ;
                                              rdfs:label "ISO 15926-14 upper ontology" ;
-                                             owl:versionInfo "Revised 2019-03-25" .
+                                             owl:versionInfo "Revised 2020-09-29" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/pav/previousVersion
+pav:previousVersion rdf:type owl:AnnotationProperty ;
+                    rdfs:isDefinedBy pav: ;
+                    rdfs:label "previousVersion" .
+
+
+###  http://standards.iso.org/iso/15926/part14/deprecatedEntity
+lis:deprecatedEntity rdf:type owl:AnnotationProperty ;
+                     rdfs:comment "Annotation property for referring from OWL ontology resources to semantically similar entities in external vocabularies, where the limitations of OWL, as as first-order language, imply that representing the intended meaning of the referenced entity is not feasible." ;
+                     rdfs:label "deprecatedEntity" ;
+                     rdfs:subPropertyOf lis:relatedEntity .
+
+
+###  http://standards.iso.org/iso/15926/part14/deprecatedEntityISO15926
+lis:deprecatedEntityISO15926 rdf:type owl:AnnotationProperty ;
+                             rdfs:comment "Annotation property for referring from ontology resources in ISO 15926-14 to semantically similar entities in other parts of ISO 15926 (primarily Part 2), where the limitations of OWL, as as first-order language, imply that Part 14 is not capable of expressing the intended meaning of the referenced entity." ;
+                             rdfs:label "deprecatedEntityISO15926" ;
+                             skos:example "Modal notions can not be captured in OWL. Therefore, Part 2 entities that are essentially modal, such as those referring to \"actuality\" or \"materialization\", need to be left out of Part 14." ;
+                             rdfs:subPropertyOf lis:deprecatedEntity ,
+                                                lis:relatedEntityISO15926 .
+
+
+###  http://standards.iso.org/iso/15926/part14/equivalentEntity
+lis:equivalentEntity rdf:type owl:AnnotationProperty ;
+                     rdfs:comment "Annotation property for referring from OWL ontology resources to entities in external vocabularies, where the local resource is equivalent in meaning to that of the referenced entity." ;
+                     rdfs:label "equivalentEntity" ;
+                     rdfs:subPropertyOf lis:relatedEntity .
+
+
+###  http://standards.iso.org/iso/15926/part14/equivalentEntityISO15926
+lis:equivalentEntityISO15926 rdf:type owl:AnnotationProperty ;
+                             rdfs:comment "Annotation property for referring from ontology resources in ISO 15926-14 to entities in other parts of ISO 15926, where the Part 14 resource is equivalent in meaning to that of the referenced entity." ;
+                             rdfs:label "equivalentEntityISO15926" ;
+                             skos:example "The Part 14 class Activity has, intuitively, the same meaning as the Part 2 entity Activity, and this annotation property should be used to record that fact." ;
+                             rdfs:subPropertyOf lis:equivalentEntity ,
+                                                lis:relatedEntityISO15926 .
+
+
+###  http://standards.iso.org/iso/15926/part14/mergedFrom
+lis:mergedFrom rdf:type owl:AnnotationProperty ;
+               rdfs:comment "This annotation property is used for stating that the current resource originates from one or several other resources by merging." ;
+               rdfs:label "mergedFrom" ;
+               skos:prefLabel "mergedFrom" ;
+               rdfs:subPropertyOf lis:originatesFrom .
+
+
+###  http://standards.iso.org/iso/15926/part14/originatesFrom
+lis:originatesFrom rdf:type owl:AnnotationProperty ;
+                   rdfs:comment "This is a super-property for associating a resource with a resource it originated from." ;
+                   rdfs:label "originatesFrom" ;
+                   skos:prefLabel "originatesFrom" .
+
+
+###  http://standards.iso.org/iso/15926/part14/relatedEntity
+lis:relatedEntity rdf:type owl:AnnotationProperty ;
+                  rdfs:comment "Annotation property for referring from OWL ontology resources to entities in external vocabularies (typically, but not necessarily, ontologies), where definitions, examples, or explications of the external entity contribute to understanding and defining the local resource." ;
+                  rdfs:label "relatedEntity" .
+
+
+###  http://standards.iso.org/iso/15926/part14/relatedEntityISO15926
+lis:relatedEntityISO15926 rdf:type owl:AnnotationProperty ;
+                          rdfs:comment "Annotation property for referring from OWL ontology resources in ISO 15926-14 to entities in other parts of ISO 15926, where definitions, examples, or explications of the Part 2 entity contribute to understanding and defining the Part 14 resource." ;
+                          rdfs:label "relatedEntityISO15926" ;
+                          skos:example "The Part 14 class Activity is clearly related to, but not equivalent to, the Part 2 entity ClassOfActivity, and this annotation property should be used to record that fact." ;
+                          rdfs:subPropertyOf lis:relatedEntity .
+
+
+###  http://standards.iso.org/iso/15926/part14/remodelsEntity
+lis:remodelsEntity rdf:type owl:AnnotationProperty ;
+                   rdfs:comment "Annotation property for referring from OWL ontology resources to entities in external vocabularies, where the local resource, together with OWL constructs, can express intuitively the same facts as the referenced entity." ;
+                   rdfs:label "remodelsEntity" ;
+                   rdfs:subPropertyOf lis:relatedEntity .
+
+
+###  http://standards.iso.org/iso/15926/part14/remodelsEntityISO15926
+lis:remodelsEntityISO15926 rdf:type owl:AnnotationProperty ;
+                           rdfs:comment "Annotation property for referring from OWL ontology resources in ISO 15926-14 to entities in other parts of ISO 15926 (primarily Part 2), where the Part 14 entity type, together with OWL constructs, can express intuitively the same facts as the referenced entity." ;
+                           rdfs:label "remodelsEntityISO15926" ;
+                           skos:example "Range restrictions on physical quantities can be captured with OWL and Part 14 using \"facet\" datatype restrictions. These will correspond to Part 2 Property Range expressions." ;
+                           rdfs:subPropertyOf lis:relatedEntityISO15926 ,
+                                              lis:remodelsEntity .
+
+
+###  http://standards.iso.org/iso/15926/part14/splitFrom
+lis:splitFrom rdf:type owl:AnnotationProperty ;
+              rdfs:comment "This annotation property is used for stating that the current resource originates from another resource by splitting." ;
+              rdfs:label "splitFrom" ;
+              skos:prefLabel "splitFrom" ;
+              rdfs:subPropertyOf lis:originatesFrom .
+
+
+###  http://standards.iso.org/iso/15926/part14/transformedFrom
+lis:transformedFrom rdf:type owl:AnnotationProperty ;
+                    rdfs:comment "This annotation property is used for stating that the current resource originates from another resource by transformation." ;
+                    rdfs:label "transformedFrom" ;
+                    skos:prefLabel "transformedFrom" ;
+                    rdfs:subPropertyOf lis:originatesFrom .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty ;
+              rdfs:comment "Alternative label for the ontology resource." ;
+              rdfs:isDefinedBy "http://www.w3.org/2004/02/skos/core" ;
+              rdfs:label "altLabel" .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 skos:definition rdf:type owl:AnnotationProperty ;
                 rdfs:comment "This SKOS relation replaces the Part 2 \"definition\" attribute." ;
+                rdfs:isDefinedBy "http://www.w3.org/2004/02/skos/core" ;
                 rdfs:label "definition" .
 
 
 ###  http://www.w3.org/2004/02/skos/core#example
 skos:example rdf:type owl:AnnotationProperty ;
              rdfs:comment "This SKOS relation replaces the Part 2 \"example\" attribute." ;
+             rdfs:isDefinedBy "http://www.w3.org/2004/02/skos/core" ;
              rdfs:label "example" .
 
 
 ###  http://www.w3.org/2004/02/skos/core#note
 skos:note rdf:type owl:AnnotationProperty ;
           rdfs:comment "This SKOS relation replaces the Part 2 \"description\" attribute." ;
+          rdfs:isDefinedBy "http://www.w3.org/2004/02/skos/core" ;
           rdfs:label "note" .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+               rdfs:comment "Preferred label for the ontology resource." ;
+               rdfs:isDefinedBy "http://www.w3.org/2004/02/skos/core" ;
+               rdfs:label "prefLabel" .
 
 
 #################################################################
@@ -74,76 +214,145 @@ xsd:string rdf:type rdfs:Datatype .
 lis:activityBoundOf rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf lis:activityPartOf ;
                     owl:inverseOf lis:hasActivityBound ;
-                    rdfs:label "activityBoundOf" .
+                    rdfs:label "activityBoundOf" ;
+                    skos:prefLabel "activityBoundOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/activityPartOf
 lis:activityPartOf rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf lis:partOf ;
                    owl:inverseOf lis:hasActivityPart ;
-                   rdfs:label "activityPartOf" .
+                   rdfs:label "activityPartOf" ;
+                   skos:prefLabel "activityPartOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/after
 lis:after rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf lis:occursRelativeTo ;
+          owl:inverseOf lis:before ;
           rdfs:comment "Use this relation to state that one activity after before another." ;
-          rdfs:label "after" .
+          rdfs:label "after" ;
+          skos:prefLabel "after" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/approvedBy
 lis:approvedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf lis:interests ;
+               rdfs:subPropertyOf lis:interestOf ;
+               owl:inverseOf lis:approves ;
+               lis:equivalentEntityISO15926 lis2:Approval ;
                rdfs:comment "Relation for stating that some item or activity was approved by an entity, typically a person or an organisation." ;
-               rdfs:label "approvedBy" .
+               rdfs:label "approvedBy" ;
+               skos:prefLabel "approvedBy" .
+
+
+###  http://standards.iso.org/iso/15926/part14/approves
+lis:approves rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf lis:hasInterestIn ;
+             lis:equivalentEntityISO15926 lis2:Approval ;
+             rdfs:label "approves" ;
+             skos:prefLabel "approves" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/arrangedPartOf
 lis:arrangedPartOf rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf lis:partOf ;
                    owl:inverseOf lis:hasArrangedPart ;
-                   rdfs:label "arrangedPartOf" .
+                   lis:equivalentEntityISO15926 lis2:ArrangementOfIndividual ,
+                                                lis12:arrangedPartOf ;
+                   rdfs:label "arrangedPartOf" ;
+                   skos:prefLabel "arrangedPartOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/assembledPartOf
 lis:assembledPartOf rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf lis:arrangedPartOf ;
                     owl:inverseOf lis:hasAssembledPart ;
-                    rdfs:label "assembledPartOf" .
+                    lis:equivalentEntityISO15926 lis2:AssemblyOfIndividual ,
+                                                 lis12:assembledPartOf ;
+                    rdfs:label "assembledPartOf" ;
+                    skos:prefLabel "assembledPartOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/before
 lis:before rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf lis:occursRelativeTo ;
            rdfs:comment "Use this relation to state that one activity occurs before another." ;
-           rdfs:label "before" .
+           rdfs:label "before" ;
+           skos:prefLabel "before" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/begins
 lis:begins rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf lis:activityBoundOf ;
            owl:inverseOf lis:hasBeginning ;
-           rdfs:label "begins" .
+           lis:equivalentEntityISO15926 lis2:Beginning ,
+                                        lis12:begins ;
+           rdfs:label "begins" ;
+           skos:prefLabel "begins" .
+
+
+###  http://standards.iso.org/iso/15926/part14/causedBy
+lis:causedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf lis:after ;
+             owl:inverseOf lis:causes ;
+             lis:equivalentEntityISO15926 lis2:CauseOfEvent ;
+             lis:relatedEntityISO15926 lis12:causes ;
+             rdfs:label "causedBy" ;
+             skos:prefLabel "causedBy" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/causes
 lis:causes rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf lis:before ;
-           rdfs:label "causes" .
+           lis:equivalentEntityISO15926 lis2:CauseOfEvent ,
+                                        lis12:causes ;
+           rdfs:label "causes" ;
+           skos:prefLabel "causes" .
+
+
+###  http://standards.iso.org/iso/15926/part14/concretizedBy
+lis:concretizedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf lis:concretizes ;
+                  lis:relatedEntityISO15926 lis12:InformationObject ;
+                  rdfs:label "concretizedBy" ;
+                  skos:prefLabel "concretizedBy" .
+
+
+###  http://standards.iso.org/iso/15926/part14/concretizes
+lis:concretizes rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( lis:Activity
+                                            lis:Feature
+                                          )
+                            ] ;
+                rdfs:range lis:InformationObject ;
+                lis:relatedEntityISO15926 lis12:InformationObject ;
+                rdfs:comment "Inspired by BFO's \"concretizes\". Note that the ISO 15926-14 definition diverges slightly from that in BFO, mainly in employing Feature where BFO has \"specifically dependent continuant\"." ,
+                             "TODO. Consider splitting this into two relations, one concretizesInFeature and another concretizesInActivity, to avoid a disjunctive domain." ;
+                rdfs:label "concretizes" ;
+                rdfs:seeAlso obo:BFO_0000164 ,
+                             obo:RO_0000059 ;
+                skos:prefLabel "concretizes" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/connectedTo
 lis:connectedTo rdf:type owl:ObjectProperty ,
                          owl:SymmetricProperty ;
                 rdfs:domain lis:PhysicalObject ;
-                rdfs:label "connectedTo" .
+                lis:equivalentEntityISO15926 lis2:ConnectionOfIndividual ,
+                                             lis12:connectedTo ;
+                rdfs:label "connectedTo" ;
+                skos:prefLabel "connectedTo" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/containedBy
 lis:containedBy rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf lis:locatedRelativeTo ;
                 owl:inverseOf lis:contains ;
-                rdfs:label "containedBy" .
+                lis:equivalentEntityISO15926 lis2:ContainmentOfIndividual ,
+                                             lis12:containedBy ;
+                rdfs:label "containedBy" ;
+                skos:prefLabel "containedBy" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/contains
@@ -151,22 +360,31 @@ lis:contains rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf lis:locatedRelativeTo ;
              rdfs:domain lis:PhysicalObject ;
              rdfs:range lis:PhysicalObject ;
+             lis:equivalentEntityISO15926 lis2:ContainmentOfIndividual ,
+                                          lis12:contains ;
              rdfs:comment "For the DL profile, we restrict this relation to physical objects. Note that this rules out using \"lis:contains\" for spatial locations." ;
-             rdfs:label "contains" .
+             rdfs:label "contains" ;
+             skos:prefLabel "contains" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/createdBy
 lis:createdBy rdf:type owl:ObjectProperty ;
               owl:inverseOf lis:creates ;
-              rdfs:label "createdBy" .
+              lis:equivalentEntityISO15926 lis12:hasCauseOfBeginning ;
+              lis:relatedEntityISO15926 lis2:ClassOfCauseOfBeginningOfClassOfIndividual ;
+              rdfs:label "createdBy" ;
+              skos:prefLabel "createdBy" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/creates
 lis:creates rdf:type owl:ObjectProperty ;
             rdfs:domain lis:Activity ;
             rdfs:range lis:PhysicalObject ;
+            lis:equivalentEntityISO15926 lis12:causesBeginningOf ;
+            lis:relatedEntityISO15926 lis2:ClassOfCauseOfBeginningOfClassOfIndividual ;
             rdfs:comment "Use this relation to express that an activity brings a physical object into being. (Derived from class_of_cause_of_beginning_of_class_of_individual in Part 2)." ;
-            rdfs:label "creates" .
+            rdfs:label "creates" ;
+            skos:prefLabel "creates" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/datumUOM
@@ -174,28 +392,52 @@ lis:datumUOM rdf:type owl:ObjectProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain lis:QuantityDatum ;
              rdfs:range lis:UnitOfMeasure ;
-             rdfs:comment "Relation (functional) to assign unit of measure to measurement data." ;
-             rdfs:label "datumUOM" .
+             rdfs:comment "Relation (functional) to assign unit of measure to measurement data. There is no obvious analogue in ISO 15926-2 or ISO 15926-12." ;
+             rdfs:label "datumUOM" ;
+             skos:prefLabel "datumUOM" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/directlyConnectedTo
 lis:directlyConnectedTo rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf lis:connectedTo ;
-                        rdfs:label "directlyConnectedTo" .
+                        rdf:type owl:SymmetricProperty ;
+                        lis:equivalentEntityISO15926 lis2:DirectConnection ,
+                                                     lis12:directlyConnectedTo ;
+                        rdfs:label "directlyConnectedTo" ;
+                        skos:prefLabel "directlyConnectedTo" .
+
+
+###  http://standards.iso.org/iso/15926/part14/dispositionOf
+lis:dispositionOf rdf:type owl:ObjectProperty ;
+                  owl:inverseOf lis:hasDisposition ;
+                  rdfs:label "dispositionOf" ;
+                  skos:prefLabel "dispositionOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/ends
 lis:ends rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf lis:activityBoundOf ;
          owl:inverseOf lis:hasEnding ;
-         rdfs:label "ends" .
+         rdfs:label "ends" ;
+         skos:prefLabel "ends" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/featureOf
 lis:featureOf rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf lis:arrangedPartOf ;
               owl:inverseOf lis:hasFeature ;
-              rdfs:label "featureOf" .
+              lis:equivalentEntityISO15926 lis2:FeatureWholePart ,
+                                           lis12:featureOf ;
+              rdfs:label "featureOf" ;
+              skos:prefLabel "featureOf" .
+
+
+###  http://standards.iso.org/iso/15926/part14/functionOf
+lis:functionOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf lis:dispositionOf ;
+               owl:inverseOf lis:hasFunction ;
+               rdfs:label "functionOf" ;
+               skos:prefLabel "functionOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/functionalPartOf
@@ -204,15 +446,18 @@ lis:functionalPartOf rdf:type owl:ObjectProperty ;
                      owl:inverseOf lis:hasFunctionalPart ;
                      rdfs:domain lis:FunctionalObject ;
                      rdfs:range lis:System ;
-                     rdfs:comment "Where x is a functional part of a system y, the realisation of one or more functions of x contributes to the performance of y." ;
+                     rdfs:comment "Used to capture the functional break-down of a system. Where x is a functional part of a system y, the realisation of one or more functions of x contributes to the performance of y." ;
                      rdfs:label "functionalPartOf" ;
-                     rdfs:seeAlso "lis:FunctionalObject" .
+                     skos:prefLabel "functionalPartOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasActivityBound
 lis:hasActivityBound rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf lis:hasActivityPart ;
-                     rdfs:label "hasActivityBound" .
+                     lis:equivalentEntityISO15926 lis2:TemporalBounding ,
+                                                  lis12:hasTemporalBound ;
+                     rdfs:label "hasActivityBound" ;
+                     skos:prefLabel "hasActivityBound" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasActivityPart
@@ -220,174 +465,346 @@ lis:hasActivityPart rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf lis:hasPart ;
                     rdfs:domain lis:Activity ;
                     rdfs:range lis:Activity ;
-                    rdfs:label "hasActivityPart" .
+                    lis:relatedEntityISO15926 lis2:TemporalWholePart ,
+                                              lis12:hasTemporalPart ;
+                    rdfs:label "hasActivityPart" ;
+                    skos:prefLabel "hasActivityPart" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasArrangedPart
 lis:hasArrangedPart rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf lis:hasPart ;
                     rdfs:domain lis:PhysicalObject ;
+                    lis:equivalentEntityISO15926 lis2:ArrangementOfIndividual ,
+                                                 lis12:hasArrangedPart ;
                     rdfs:comment "In line with intended use, for the DL profile this relation has a domain restricted to physical objects." ;
-                    rdfs:label "hasArrangedPart" .
+                    rdfs:label "hasArrangedPart" ;
+                    skos:prefLabel "hasArrangedPart" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasAssembledPart
 lis:hasAssembledPart rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf lis:hasArrangedPart ;
+                     lis:equivalentEntityISO15926 lis2:AssemblyOfIndividual ,
+                                                  lis12:hasAssembledPart ;
                      rdfs:comment "This is the recommended (super-) relation for capturing physical breakdown of mechanical assemblies." ;
-                     rdfs:label "hasAssembledPart" .
+                     rdfs:label "hasAssembledPart" ;
+                     skos:prefLabel "hasAssembledPart" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasBeginning
 lis:hasBeginning rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf lis:hasActivityBound ;
-                 rdfs:label "hasBeginning" .
+                 lis:equivalentEntityISO15926 lis2:Beginning ,
+                                              lis12:hasBeginning ;
+                 rdfs:label "hasBeginning" ;
+                 skos:prefLabel "hasBeginning" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasDisposition
 lis:hasDisposition rdf:type owl:ObjectProperty ;
                    rdfs:range lis:Disposition ;
                    rdfs:comment "Inspired by BFO's \"has disposition\" (RO_0000091)." ;
-                   rdfs:label "hasDisposition" .
+                   rdfs:label "hasDisposition" ;
+                   rdfs:seeAlso obo:RO_0000091 ;
+                   skos:prefLabel "hasDisposition" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasEnding
 lis:hasEnding rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf lis:hasActivityBound ;
-              rdfs:label "hasEnding" .
+              lis:equivalentEntityISO15926 lis2:Ending ,
+                                           lis12:hasEnd ;
+              rdfs:label "hasEnding" ;
+              skos:prefLabel "hasEnding" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasFeature
 lis:hasFeature rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf lis:hasArrangedPart ;
+               lis:equivalentEntityISO15926 lis2:FeatureWholePart ,
+                                            lis12:hasFeature ;
                rdfs:comment "Example of usage: stating that an entity has a surface suitable for connection, such as a flange face." ;
-               rdfs:label "hasFeature" .
+               rdfs:label "hasFeature" ;
+               skos:prefLabel "hasFeature" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasFunction
 lis:hasFunction rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf lis:hasDisposition ;
                 rdfs:range lis:Function ;
+                lis:relatedEntityISO15926 lis2:FunctionalPhysicalObject ,
+                                          lis12:FunctionalPhysicalObject ;
                 rdfs:comment "Inspired by BFO's \"has function\" (RO_0000085)." ;
-                rdfs:label "hasFunction" .
+                rdfs:label "hasFunction" ;
+                rdfs:seeAlso obo:RO_0000085 ;
+                skos:prefLabel "hasFunction" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasFunctionalPart
 lis:hasFunctionalPart rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf lis:hasPart ;
-                      rdfs:label "hasFunctionalPart" .
+                      rdfs:label "hasFunctionalPart" ;
+                      skos:prefLabel "hasFunctionalPart" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasInstalled
 lis:hasInstalled rdf:type owl:ObjectProperty ;
                  owl:inverseOf lis:installedAs ;
-                 rdfs:label "hasInstalled" .
+                 rdfs:label "hasInstalled" ;
+                 skos:prefLabel "hasInstalled" .
+
+
+###  http://standards.iso.org/iso/15926/part14/hasInterestIn
+lis:hasInterestIn rdf:type owl:ObjectProperty ;
+                  owl:inverseOf lis:interestOf ;
+                  lis:relatedEntityISO15926 lis2:LifecycleStage ;
+                  rdfs:label "hasInterestIn" ;
+                  skos:prefLabel "hasInterestIn" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasPart
 lis:hasPart rdf:type owl:ObjectProperty ;
             owl:inverseOf lis:partOf ;
-            rdfs:label "hasPart" .
+            lis:equivalentEntityISO15926 lis12:hasPart ,
+                                         "CompositionOfIndividual" ;
+            rdfs:label "hasPart" ;
+            skos:prefLabel "hasPart" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasParticipant
 lis:hasParticipant rdf:type owl:ObjectProperty ;
                    owl:inverseOf lis:participantIn ;
                    rdfs:domain lis:Activity ;
+                   lis:equivalentEntityISO15926 lis2:Participation ,
+                                                lis12:hasParticipant ;
                    rdfs:comment "Note that BFO does not have 'has participant' as a subrelation of 'has part'. This can be motivated in that 4D objects, here members of Activity, are at least not obviously able to have 3D parts." ,
                                 "This is the recommended superrelation for types of participation by entities in activities -- the agent, the matter being acted upon, etc." ;
-                   rdfs:label "hasParticipant" .
+                   rdfs:label "hasParticipant" ;
+                   skos:prefLabel "hasParticipant" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasPhysicalQuantity
 lis:hasPhysicalQuantity rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf lis:hasQuality ;
-                        rdfs:label "hasPhysicalQuantity" .
+                        owl:inverseOf lis:physicalQuantityOf ;
+                        rdfs:domain lis:PhysicalObject ;
+                        rdfs:range lis:PhysicalQuantity ;
+                        rdfs:label "hasPhysicalQuantity" ;
+                        skos:prefLabel "hasPhysicalQuantity" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasQuality
 lis:hasQuality rdf:type owl:ObjectProperty ;
+               owl:inverseOf lis:qualityOf ;
                rdfs:range lis:Quality ;
-               rdfs:label "hasQuality" .
+               rdfs:label "hasQuality" ;
+               skos:prefLabel "hasQuality" .
+
+
+###  http://standards.iso.org/iso/15926/part14/hasResident
+lis:hasResident rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf lis:locatedRelativeTo ;
+                owl:inverseOf lis:residesIn ;
+                lis:relatedEntityISO15926 lis2:RelativeLocation ,
+                                          lis12:locatedRelativeTo ;
+                rdfs:label "hasResident" ;
+                skos:prefLabel "hasResident" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/hasRole
 lis:hasRole rdf:type owl:ObjectProperty ;
             owl:inverseOf lis:roleOf ;
             rdfs:range lis:Role ;
+            lis:relatedEntityISO15926 lis2:Role ;
             rdfs:comment "Inspired by BFO's \"has role\" (RO_0000087)" ;
-            rdfs:label "hasRole" .
+            rdfs:label "hasRole" ;
+            rdfs:seeAlso obo:RO_0000087 ;
+            skos:prefLabel "hasRole" .
+
+
+###  http://standards.iso.org/iso/15926/part14/hasSubLocation
+lis:hasSubLocation rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf lis:hasPart ;
+                   owl:inverseOf lis:subLocationOf ;
+                   rdfs:domain lis:Location ;
+                   rdfs:range lis:Location ;
+                   rdfs:label "hasSubLocation" ;
+                   skos:prefLabel "hasSubLocation" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/installedAs
 lis:installedAs rdf:type owl:ObjectProperty ;
                 rdfs:domain lis:PhysicalObject ;
                 rdfs:range lis:FunctionalObject ;
-                rdfs:label "installedAs" .
+                rdfs:label "installedAs" ;
+                skos:prefLabel "installedAs" .
 
 
-###  http://standards.iso.org/iso/15926/part14/interests
-lis:interests rdf:type owl:ObjectProperty ;
-              rdfs:comment "Derived from \"LifecycleStage\" of Part 2, this is a superproperty suitable for various intentional relationships, such as planning, approving, or ordering. The Part 2 name \"lifecycle stage\" is likely to confuse, but the intended use of this type is clear enough from this Part 2 annotation to ClassOfLifecycleStage: \"EXAMPLE Planned, required, expected, and proposed can be represented by instances of [class_of_lifecycle_stage].\"" ;
-              rdfs:label "interests" .
+###  http://standards.iso.org/iso/15926/part14/interestOf
+lis:interestOf rdf:type owl:ObjectProperty ;
+               lis:relatedEntityISO15926 lis2:LifecycleStage ;
+               rdfs:comment "Derived from \"LifecycleStage\" of Part 2, this is a superproperty suitable for various intentional relationships, such as planning, approving, or ordering. The Part 2 name \"lifecycle stage\" is likely to confuse, but the intended use of this type is clear enough from this Part 2 annotation to ClassOfLifecycleStage: \"EXAMPLE Planned, required, expected, and proposed can be represented by instances of [class_of_lifecycle_stage].\"" ;
+               rdfs:label "interestOf" ;
+               skos:prefLabel "interestOf" .
+
+
+###  http://standards.iso.org/iso/15926/part14/isAbout
+lis:isAbout rdf:type owl:ObjectProperty ;
+            owl:inverseOf lis:representedIn ;
+            rdfs:label "isAbout" ;
+            rdfs:seeAlso obo:IAO_0000136 ;
+            skos:prefLabel "isAbout" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/locatedRelativeTo
-lis:locatedRelativeTo rdf:type owl:ObjectProperty ;
-                      rdfs:label "locatedRelativeTo" .
+lis:locatedRelativeTo rdf:type owl:ObjectProperty ,
+                               owl:SymmetricProperty ;
+                      lis:equivalentEntityISO15926 lis2:RelativeLocation ,
+                                                   lis12:locatedRelativeTo ;
+                      rdfs:label "locatedRelativeTo" ;
+                      skos:prefLabel "locatedRelativeTo" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/occursRelativeTo
-lis:occursRelativeTo rdf:type owl:ObjectProperty ;
+lis:occursRelativeTo rdf:type owl:ObjectProperty ,
+                              owl:SymmetricProperty ;
                      rdfs:domain lis:Activity ;
                      rdfs:range lis:Activity ;
-                     rdfs:comment "This relation is introduced for the DL profile as a top relation for various temporal relations between activities." ;
-                     rdfs:label "occursRelativeTo" .
+                     lis:remodelsEntityISO15926 lis2:TemporalSequence ;
+                     rdfs:comment "This relation is introduced for the DL profile as a top relation for various temporal relations between activities (only)." ;
+                     rdfs:label "occursRelativeTo" ;
+                     skos:prefLabel "occursRelativeTo" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/partOf
 lis:partOf rdf:type owl:ObjectProperty ;
-           rdfs:label "partOf" .
+           lis:equivalentEntityISO15926 lis2:CompositionOfIndividual ,
+                                        lis12:partOf ;
+           rdfs:label "partOf" ;
+           skos:prefLabel "partOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/participantIn
 lis:participantIn rdf:type owl:ObjectProperty ;
-                  rdfs:label "participantIn" .
+                  lis:equivalentEntityISO15926 lis2:Participation ,
+                                               lis12:participantIn ;
+                  rdfs:label "participantIn" ;
+                  skos:prefLabel "participantIn" .
+
+
+###  http://standards.iso.org/iso/15926/part14/physicalQuantityOf
+lis:physicalQuantityOf rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf lis:qualityOf ;
+                       rdfs:label "physicalQuantityOf" ;
+                       skos:prefLabel "physicalQuantityOf" .
+
+
+###  http://standards.iso.org/iso/15926/part14/qualityOf
+lis:qualityOf rdf:type owl:ObjectProperty ;
+              rdfs:label "qualityOf" ;
+              skos:prefLabel "qualityOf" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/qualityQuantifiedAs
 lis:qualityQuantifiedAs rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf lis:representedBy ;
+                        rdfs:subPropertyOf lis:representedIn ;
+                        owl:inverseOf lis:quantifiesQuality ;
                         rdfs:domain lis:Quality ;
                         rdfs:range lis:QuantityDatum ;
+                        lis:relatedEntityISO15926 lis2:PropertyQuantification ,
+                                                  lis12:PhysicalProperty ,
+                                                  lis12:QuantityMeasure ;
                         rdfs:comment "This relation is inspired by the relation \"is quality measured as\" of the Information Artefact Ontology. The term \"quantified\" replaces \"measured\" to support cases where measurement is not involved, as in e.g. estimates." ;
-                        rdfs:label "qualityQuantifiedAs" .
+                        rdfs:label "qualityQuantifiedAs" ;
+                        skos:prefLabel "qualityQuantifiedAs" .
+
+
+###  http://standards.iso.org/iso/15926/part14/quantifiesQuality
+lis:quantifiesQuality rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf lis:isAbout ;
+                      lis:relatedEntityISO15926 lis2:RepresentationOfThing ,
+                                                lis12:representationByInformationObject ;
+                      rdfs:label "quantifiesQuality" ;
+                      skos:prefLabel "quantifiesQuality" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/realizedIn
 lis:realizedIn rdf:type owl:ObjectProperty ;
-               rdfs:domain [ rdf:type owl:Class ;
-                             owl:unionOf ( lis:Disposition
-                                           lis:Role
-                                         )
-                           ] ;
+               owl:inverseOf lis:realizes ;
+               rdfs:domain lis:RealizableEntity ;
                rdfs:range lis:Activity ;
                rdfs:comment "Inspired by BFO's \"realized in\" (BFO_0000054)" ;
-               rdfs:label "realizedIn" .
+               rdfs:label "realizedIn" ;
+               rdfs:seeAlso obo:BFO_0000054 ;
+               skos:prefLabel "realizedIn" .
+
+
+###  http://standards.iso.org/iso/15926/part14/realizes
+lis:realizes rdf:type owl:ObjectProperty ;
+             rdfs:label "realizes" ;
+             rdfs:seeAlso obo:BFO_0000055 ;
+             skos:prefLabel "realizes" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/representedBy
 lis:representedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf lis:representedIn ;
+                  owl:inverseOf lis:represents ;
                   rdfs:range lis:InformationObject ;
-                  rdfs:comment "Following Part 2, this is the top level relation from information objects to things." ;
+                  lis:equivalentEntityISO15926 lis2:RepresentationOfThing ,
+                                               lis12:representationByInformationObject ;
+                  rdfs:comment "In Part 2, this is the top level relation from things to information objects. For this Part, we introduce representedIn, as the more generic inverse of isAbout." ;
                   rdfs:label "representedBy" ;
-                  rdfs:seeAlso "Also see \"is about\" IAO_0000136 of the Information Artifact Ontology, which is probably better named for a maximally general relation of \"aboutness\" (but note that \"is about\" goes in the opposite direction of \"representedIn\")." .
+                  skos:prefLabel "representedBy" .
+
+
+###  http://standards.iso.org/iso/15926/part14/representedIn
+lis:representedIn rdf:type owl:ObjectProperty ;
+                  rdfs:range lis:InformationObject ;
+                  lis:relatedEntityISO15926 lis2:RepresentationOfThing ,
+                                            lis12:representationByInformationObject ;
+                  rdfs:comment "Also see \"is about\" IAO_0000136 of the Information Artifact Ontology, which may be better named for a maximally general relation of \"aboutness\" (but note that \"is about\" goes in the opposite direction of \"representedIn\")." ;
+                  rdfs:label "representedIn" ;
+                  rdfs:seeAlso obo:IAO_0000136 ;
+                  skos:prefLabel "representedIn" .
+
+
+###  http://standards.iso.org/iso/15926/part14/represents
+lis:represents rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf lis:isAbout ;
+               lis:equivalentEntityISO15926 lis2:RepresentationOfThing ;
+               lis:relatedEntityISO15926 lis12:representationByInformationObject ;
+               rdfs:label "represents" ;
+               skos:prefLabel "represents" .
+
+
+###  http://standards.iso.org/iso/15926/part14/residesIn
+lis:residesIn rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf lis:locatedRelativeTo ;
+              rdfs:domain lis:PhysicalObject ;
+              rdfs:range lis:Location ;
+              lis:relatedEntityISO15926 lis2:RelativeLocation ,
+                                        lis12:locatedRelativeTo ;
+              rdfs:comment "x residesIn y if x is a physical object that is located in the location y." ;
+              rdfs:label "residesIn" ;
+              skos:prefLabel "residesIn" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/roleOf
 lis:roleOf rdf:type owl:ObjectProperty ;
+           lis:relatedEntityISO15926 lis2:Role ;
            rdfs:comment "Inspired by BFO's \"role of\" (RO_0000081)" ;
-           rdfs:label "roleOf" .
+           rdfs:label "roleOf" ;
+           rdfs:seeAlso obo:RO_0000081 ;
+           skos:prefLabel "roleOf" .
+
+
+###  http://standards.iso.org/iso/15926/part14/subLocationOf
+lis:subLocationOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf lis:partOf ;
+                  rdfs:label "subLocationOf" ;
+                  skos:prefLabel "subLocationOf" .
 
 
 #################################################################
@@ -396,20 +813,24 @@ lis:roleOf rdf:type owl:ObjectProperty ;
 
 ###  http://standards.iso.org/iso/15926/part14/approvedOn
 lis:approvedOn rdf:type owl:DatatypeProperty ;
+               lis:relatedEntityISO15926 lis2:Approval ;
                rdfs:comment "This is a super-property for stating the time that an entity was approved, derived from Part 2 \"approval\". Introduce sub-properties to match different contexts and types of approval. The range of sub-properties should be xsd:date or xsd:dateTime." ;
-               rdfs:label "approvedOn" .
+               rdfs:label "approvedOn" ;
+               skos:prefLabel "approvedOn" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/datumValue
 lis:datumValue rdf:type owl:DatatypeProperty ;
                rdfs:comment "This relation is inspired by the relation \"has measurement value\" of the Information Artefact Ontology." ;
-               rdfs:label "datumValue" .
+               rdfs:label "datumValue" ;
+               skos:prefLabel "datumValue" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/qualityQuantityValue
 lis:qualityQuantityValue rdf:type owl:DatatypeProperty ;
                          rdfs:comment "This is a super-property for \"shortcut\" relations that combine a quality, the weak lis:qualityQuantifiedAs, and a unit of measure into a simple data property. For instance, \"mass in kilograms\" can be introduced as such a data property, for expressing the mass of an entity on the kilogram scale. lis:qualityQuantifiedAs is weak in the sense that it doesn't distinguish between designed or estimated, and measured, values." ;
-                         rdfs:label "qualityQuantityValue" .
+                         rdfs:label "qualityQuantityValue" ;
+                         skos:prefLabel "qualityQuantityValue" .
 
 
 #################################################################
@@ -418,44 +839,66 @@ lis:qualityQuantityValue rdf:type owl:DatatypeProperty ;
 
 ###  http://standards.iso.org/iso/15926/part14/Activity
 lis:Activity rdf:type owl:Class ;
-             rdfs:label "Activity" .
+             lis:equivalentEntityISO15926 lis2:Activity ,
+                                          lis12:Activity ;
+             rdfs:label "Activity" ;
+             skos:prefLabel "Activity" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Aspect
 lis:Aspect rdf:type owl:Class ;
-           rdfs:label "Aspect" .
+           rdfs:comment "The class Aspect is closely related to \"specifically dependent continuant\" in BFO (BFO_0000020)." ,
+                        "There is no direct analogue to Aspect in ISO 15926-2 or ISO 15926-12." ;
+           rdfs:label "Aspect" ;
+           rdfs:seeAlso obo:BFO_0000020 ;
+           skos:prefLabel "Aspect" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Compound
 lis:Compound rdf:type owl:Class ;
              rdfs:subClassOf lis:PhysicalObject ;
-             rdfs:label "Compound" .
+             lis:equivalentEntityISO15926 lis12:Compound ;
+             lis:relatedEntityISO15926 lis2:ClassOfCompound ;
+             rdfs:label "Compound" ;
+             skos:prefLabel "Compound" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Disposition
 lis:Disposition rdf:type owl:Class ;
-                rdfs:subClassOf lis:Aspect ;
+                rdfs:subClassOf lis:RealizableEntity ;
                 rdfs:comment "Inspired by the BFO class \"disposition\" (BFO_0000016)." ;
-                rdfs:label "Disposition" .
+                rdfs:label "Disposition" ;
+                rdfs:seeAlso obo:BFO_0000016 ;
+                skos:prefLabel "Disposition" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Event
 lis:Event rdf:type owl:Class ;
           rdfs:subClassOf lis:Activity ;
-          rdfs:label "Event" .
+          lis:equivalentEntityISO15926 lis2:Event ,
+                                       lis12:Event ;
+          rdfs:label "Event" ;
+          skos:prefLabel "Event" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Feature
 lis:Feature rdf:type owl:Class ;
             rdfs:subClassOf lis:PhysicalObject ;
-            rdfs:label "Feature" .
+            lis:equivalentEntityISO15926 lis12:Feature ;
+            lis:relatedEntityISO15926 lis2:ClassOfFeature ;
+            rdfs:label "Feature" ;
+            skos:prefLabel "Feature" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Function
 lis:Function rdf:type owl:Class ;
              rdfs:subClassOf lis:Disposition ;
+             lis:relatedEntityISO15926 lis2:FunctionalPhysicalObject ,
+                                       lis12:FunctionalPhysicalObject ;
              rdfs:comment "Inspired by the BFO class \"function\" (BFO_0000034)." ;
-             rdfs:label "Function" .
+             rdfs:label "Function" ;
+             rdfs:seeAlso obo:BFO_0000034 ;
+             skos:prefLabel "Function" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/FunctionalObject
@@ -469,113 +912,181 @@ lis:FunctionalObject rdf:type owl:Class ;
                                        owl:onProperty lis:hasFunction ;
                                        owl:someValuesFrom lis:Function
                                      ] ;
+                     lis:relatedEntityISO15926 lis2:FunctionalPhysicalObject ,
+                                               lis12:ClassOfPhysicalObjectByFunction ,
+                                               lis12:FunctionalPhysicalObject ;
                      rdfs:comment "A functional object is part of a system, and has a function whose realisation contributes to the performance of the system as a whole." ;
                      rdfs:label "FunctionalObject" ;
                      skos:example "An item on a Process Flow Diagram (PFD) or Process and Instrumentation Diagram (P&ID) should be classified as a FunctionalObject." ;
-                     skos:note "A class of artefacts such as Pump is not a subclass of FunctionalObject: a pump that is not in service is not part of a system. However, an individual functional location should in general be given some high-level artefact classification in addition to its description as part of a system." .
+                     skos:note "A class of artefacts such as Pump is not a subclass of FunctionalObject: a pump that is not in service is not part of a system. However, an individual functional location should in general be given some high-level artefact classification in addition to its description as part of a system." ;
+                     skos:prefLabel "FunctionalObject" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/InanimatePhysicalObject
 lis:InanimatePhysicalObject rdf:type owl:Class ;
                             rdfs:subClassOf lis:PhysicalObject ;
-                            rdfs:label "InanimatePhysicalObject" .
+                            lis:equivalentEntityISO15926 lis12:InanimatePhysicalObject ;
+                            lis:relatedEntityISO15926 lis2:ClassOfInanimatePhysicalObject ;
+                            rdfs:label "InanimatePhysicalObject" ;
+                            skos:prefLabel "InanimatePhysicalObject" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/InformationObject
 lis:InformationObject rdf:type owl:Class ;
                       rdfs:subClassOf lis:Object ;
-                      rdfs:label "InformationObject" .
+                      lis:relatedEntityISO15926 lis2:ClassOfInformationObject ,
+                                                lis12:InformationContent ,
+                                                lis12:InformationObject ;
+                      rdfs:label "InformationObject" ;
+                      skos:prefLabel "InformationObject" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Location
 lis:Location rdf:type owl:Class ;
              rdfs:subClassOf lis:Object ;
-             rdfs:label "Location" .
+             lis:equivalentEntityISO15926 lis2:SpatialLocation ,
+                                          lis12:RegionInSpace ;
+             rdfs:label "Location" ;
+             skos:prefLabel "Location" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Object
 lis:Object rdf:type owl:Class ;
-           rdfs:label "Object" .
+           lis:relatedEntityISO15926 lis2:PossibleIndividual ,
+                                     lis12:Individual ;
+           rdfs:label "Object" ;
+           skos:prefLabel "Object" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Organism
 lis:Organism rdf:type owl:Class ;
              rdfs:subClassOf lis:PhysicalObject ;
-             rdfs:label "Organism" .
+             lis:equivalentEntityISO15926 lis12:Organism ;
+             lis:relatedEntityISO15926 lis2:ClassOfOrganism ;
+             rdfs:label "Organism" ;
+             skos:prefLabel "Organism" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Organization
 lis:Organization rdf:type owl:Class ;
                  rdfs:subClassOf lis:Object ;
-                 rdfs:label "Organization" .
+                 lis:equivalentEntityISO15926 lis12:Organization ;
+                 lis:relatedEntityISO15926 lis2:ClassOfOrganization ;
+                 rdfs:label "Organization" ;
+                 skos:prefLabel "Organization" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/PeriodInTime
 lis:PeriodInTime rdf:type owl:Class ;
                  rdfs:subClassOf lis:Activity ;
-                 rdfs:label "PeriodInTime" .
+                 lis:equivalentEntityISO15926 lis2:PeriodInTime ,
+                                              lis12:PeriodInTime ;
+                 rdfs:label "PeriodInTime" ;
+                 skos:prefLabel "PeriodInTime" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Person
 lis:Person rdf:type owl:Class ;
            rdfs:subClassOf lis:Organism ;
-           rdfs:label "Person" .
+           lis:equivalentEntityISO15926 lis12:Person ;
+           lis:relatedEntityISO15926 lis2:ClassOfPerson ;
+           rdfs:label "Person" ;
+           skos:prefLabel "Person" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Phase
 lis:Phase rdf:type owl:Class ;
           rdfs:subClassOf lis:InanimatePhysicalObject ;
-          rdfs:label "Phase" .
+          lis:relatedEntityISO15926 lis2:Phase ,
+                                    lis12:Phase ;
+          rdfs:label "Phase" ;
+          skos:prefLabel "Phase" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/PhysicalObject
 lis:PhysicalObject rdf:type owl:Class ;
                    rdfs:subClassOf lis:Object ;
-                   rdfs:label "PhysicalObject" .
+                   lis:deprecatedEntityISO15926 lis2:MaterializedPhysicalObject ,
+                                                lis12:MaterializedPhysicalObject ;
+                   lis:equivalentEntityISO15926 lis2:PhysicalObject ,
+                                                lis12:PhysicalObject ;
+                   rdfs:label "PhysicalObject" ;
+                   skos:prefLabel "PhysicalObject" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/PhysicalQuantity
 lis:PhysicalQuantity rdf:type owl:Class ;
                      rdfs:subClassOf lis:Quality ;
-                     rdfs:label "PhysicalQuantity" .
+                     lis:equivalentEntityISO15926 lis12:PhysicalQuantity ;
+                     lis:relatedEntityISO15926 lis2:Property ;
+                     rdfs:label "PhysicalQuantity" ;
+                     skos:prefLabel "PhysicalQuantity" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/PointInSpace
 lis:PointInSpace rdf:type owl:Class ;
                  rdfs:subClassOf lis:SpatialLocation ;
-                 rdfs:label "PointInSpace" .
+                 lis:equivalentEntityISO15926 lis12:PointInSpace ;
+                 rdfs:label "PointInSpace" ;
+                 skos:prefLabel "PointInSpace" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/PointInTime
 lis:PointInTime rdf:type owl:Class ;
                 rdfs:subClassOf lis:Event ;
-                rdfs:label "PointInTime" .
+                lis:equivalentEntityISO15926 lis2:PointInTime ,
+                                             lis12:PointInTime ;
+                rdfs:label "PointInTime" ;
+                skos:prefLabel "PointInTime" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Quality
 lis:Quality rdf:type owl:Class ;
             rdfs:subClassOf lis:Aspect ;
-            rdfs:label "Quality" .
+            lis:relatedEntityISO15926 lis2:Property ,
+                                      lis12:Quantity ;
+            rdfs:comment "The class Quality and its subclass PhysicalQuantity inspired by corresponding classes included in the DOLCE and BFO (BFO_0000019) upper ontologies." ;
+            rdfs:label "Quality" ;
+            rdfs:seeAlso "bfo:BFO_0000019" ;
+            skos:prefLabel "Quality" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/QuantityDatum
 lis:QuantityDatum rdf:type owl:Class ;
                   rdfs:subClassOf lis:InformationObject ;
+                  lis:relatedEntityISO15926 lis12:Quantity ;
                   rdfs:comment "This class is inspired by the class \"measurement datum\" of the Information Artefact Ontology. The change of wording from \"measurement\" to \"quantity\" is intended to support cases where measurement is not involved, such as with nominal values." ;
-                  rdfs:label "QuantityDatum" .
+                  rdfs:label "QuantityDatum" ;
+                  rdfs:seeAlso obo:IAO_0000109 ;
+                  skos:prefLabel "QuantityDatum" .
+
+
+###  http://standards.iso.org/iso/15926/part14/RealizableEntity
+lis:RealizableEntity rdf:type owl:Class ;
+                     rdfs:subClassOf lis:Aspect ;
+                     rdfs:comment "Inspired by the BFO class \"realizable entity\" (BFO_0000017)." ;
+                     rdfs:label "RealizableEntity" ;
+                     rdfs:seeAlso obo:BFO_0000017 ;
+                     skos:prefLabel "RealizableEntity" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/RegionInSpace
 lis:RegionInSpace rdf:type owl:Class ;
                   rdfs:subClassOf lis:SpatialLocation ;
-                  rdfs:label "RegionInSpace" .
+                  lis:equivalentEntityISO15926 lis12:RegionInSpace ;
+                  rdfs:label "RegionInSpace" ;
+                  skos:prefLabel "RegionInSpace" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Role
 lis:Role rdf:type owl:Class ;
-         rdfs:subClassOf lis:Aspect ;
-         rdfs:comment "This class is motivated in the Part 2 'role' entity type, and in the same-named BFO class. Part 2 is not very specific about the meaning of roles, but the examples are clear enough. There is still much disagreement in the ontology field about how roles should be understood and modelled." ;
-         rdfs:label "Role" .
+         rdfs:subClassOf lis:RealizableEntity ;
+         lis:relatedEntityISO15926 lis2:Role ,
+                                   lis2:RoleAndDomain ;
+         rdfs:comment "This class is motivated in the Part 2 'role' entity type, and in the same-named BFO class (BFO_0000023). The specific meaning of roles in ISO 15926-2 should be investigated, even though the examples given there are clear enough." ;
+         rdfs:label "Role" ;
+         rdfs:seeAlso obo:BFO_0000023 ;
+         skos:prefLabel "Role" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/ScalarQuantityDatum
@@ -589,34 +1100,50 @@ lis:ScalarQuantityDatum rdf:type owl:Class ;
                                           owl:onProperty lis:datumValue ;
                                           owl:someValuesFrom rdfs:Literal
                                         ] ;
+                        lis:relatedEntityISO15926 lis12:PhysicalQuantity ;
                         rdfs:comment "A scalar quantity datum has a unique unit of measure and a unique numeric value. This class is inspired by the class \"scalar measurement datum\" of the Information Artefact Ontology." ;
-                        rdfs:label "ScalarQuantityDatum" .
+                        rdfs:label "ScalarQuantityDatum" ;
+                        rdfs:seeAlso obo:IAO_0000032 ;
+                        skos:prefLabel "ScalarQuantityDatum" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Scale
 lis:Scale rdf:type owl:Class ;
           rdfs:subClassOf lis:UnitOfMeasure ;
-          rdfs:label "Scale" .
+          lis:equivalentEntityISO15926 lis2:Scale ,
+                                       lis12:Scale ;
+          rdfs:label "Scale" ;
+          skos:prefLabel "Scale" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Site
 lis:Site rdf:type owl:Class ;
          rdfs:subClassOf lis:Location ;
+         lis:relatedEntityISO15926 lis2:RegionInSpace ,
+                                   lis2:SpatialLocation ;
          rdfs:comment "From BFO: \"b is a site means: b is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part thereof. (axiom label in BFO2 Reference: [034-002])\"" ,
-                      "This class is inspired by the class \"site\" of the Information Artefact Ontology." ;
-         rdfs:label "Site" .
+                      "This class is inspired by the BFO/Information Artefact Ontology class \"site\" (BFO_0000029)." ;
+         rdfs:label "Site" ;
+         rdfs:seeAlso "bfo:BFO_0000029" ;
+         skos:prefLabel "Site" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/SpatialLocation
 lis:SpatialLocation rdf:type owl:Class ;
                     rdfs:subClassOf lis:Location ;
-                    rdfs:label "SpatialLocation" .
+                    lis:relatedEntityISO15926 lis2:RegionInSpace ,
+                                              lis2:SpatialLocation ;
+                    rdfs:label "SpatialLocation" ;
+                    skos:prefLabel "SpatialLocation" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/Stream
 lis:Stream rdf:type owl:Class ;
            rdfs:subClassOf lis:InanimatePhysicalObject ;
-           rdfs:label "Stream" .
+           lis:equivalentEntityISO15926 lis2:Stream ,
+                                        lis12:Stream ;
+           rdfs:label "Stream" ;
+           skos:prefLabel "Stream" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/System
@@ -626,15 +1153,20 @@ lis:System rdf:type owl:Class ;
                              owl:onProperty lis:hasFunctionalPart ;
                              owl:someValuesFrom lis:FunctionalObject
                            ] ;
+           lis:relatedEntityISO15926 lis2:FunctionalPhysicalObject ,
+                                     lis12:FunctionalPhysicalObject ;
            rdfs:comment "A system is a complex of functional parts working together. Each part contributes to the realisation of the system's function (though not necessarily every part in every performance of the system)." ;
            rdfs:label "System" ;
-           skos:note "A functional location that does not itself have functional parts is not a system." .
+           skos:note "A functional location that does not itself have functional parts is not a system." ;
+           skos:prefLabel "System" .
 
 
 ###  http://standards.iso.org/iso/15926/part14/UnitOfMeasure
 lis:UnitOfMeasure rdf:type owl:Class ;
                   rdfs:subClassOf lis:InformationObject ;
-                  rdfs:label "UnitOfMeasure" .
+                  lis:relatedEntityISO15926 lis12:QuantityMeasure ;
+                  rdfs:label "UnitOfMeasure" ;
+                  skos:prefLabel "UnitOfMeasure" .
 
 
 #################################################################
@@ -645,6 +1177,15 @@ lis:UnitOfMeasure rdf:type owl:Class ;
   owl:members ( lis:Activity
                 lis:Aspect
                 lis:Object
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( lis:InformationObject
+                lis:Location
+                lis:Organization
+                lis:PhysicalObject
               )
 ] .
 

@@ -1,375 +1,358 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://www.semanticweb.org/asset#"
      xml:base="http://www.semanticweb.org/asset"
+     xmlns:fso="http://www.semanticweb.org/functional-system-ontology/"
+     xmlns:lis="http://standards.iso.org/iso/15926/part14/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pav="http://purl.org/pav/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:fmea="http://www.semanticweb.org/fmea-iso/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/asset">
-    <Prefix name="" IRI="http://www.semanticweb.org/asset"/>
-    <Prefix name="fso" IRI="http://www.semanticweb.org/functional-system-ontology/"/>
-    <Prefix name="lis" IRI="http://standards.iso.org/iso/15926/part14/"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="fmea" IRI="http://www.semanticweb.org/fmea-iso/"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="asset" IRI="http://www.semanticweb.org/asset/"/>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Activity"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Disposition"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:Function"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:FunctionalObject"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:InformationObject"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="lis:System"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Chamber"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/CollectionChamber"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/CondensateSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/CoolingDoor"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/DrainPipe"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/EmergencyDoorsSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureDueToEarthFault"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureDueToOvercurrent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/FailureDueToShortCircuit"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Fan"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Filter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/HeatExchanger"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Heater"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/HeaterSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/HeatingAttemptAndNoHeat"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/HeatingAttemptAndPartialHeat"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/HeatingProcess"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/LeakageSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ObservationOfEarthFault"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ObservationOfOvercurrent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ObservationOfShortCircuit"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Sump"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/TerminalBoxCables"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/VentilationSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:FailureEffect"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:FailureEvent"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:FinalFailureEffect"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:FunctionalFailure"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:Malfunction"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fmea:ObservationOfOvercurrent"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fso:AncillarySystem"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fso:Component"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="fso:Process"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:causes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasDisposition"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasFunctionalPart"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:hasParticipant"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:realizedIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="lis:representedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="fmea:hasMalfunction"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="fmea:resultsIn"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="/Chamber"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/CollectionChamber"/>
-        <Class IRI="/Chamber"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/CondensateSystem"/>
-        <Class abbreviatedIRI="lis:System"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/CoolingDoor"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/DrainPipe"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/EmergencyDoorsSystem"/>
-        <Class abbreviatedIRI="lis:System"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FailureDueToEarthFault"/>
-        <Class abbreviatedIRI="fmea:FailureEvent"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FailureDueToOvercurrent"/>
-        <Class abbreviatedIRI="fmea:FailureEvent"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/FailureDueToShortCircuit"/>
-        <Class abbreviatedIRI="fmea:FailureEvent"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Fan"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Filter"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatExchanger"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Heater"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeaterSystem"/>
-        <Class abbreviatedIRI="lis:System"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatingAttemptAndNoHeat"/>
-        <Class IRI="/HeatingProcess"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatingAttemptAndNoHeat"/>
-        <Class abbreviatedIRI="fmea:FailureEffect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatingAttemptAndPartialHeat"/>
-        <Class IRI="/HeatingProcess"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatingAttemptAndPartialHeat"/>
-        <Class abbreviatedIRI="fmea:FailureEffect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/HeatingProcess"/>
-        <Class abbreviatedIRI="fso:Process"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/LeakageSystem"/>
-        <Class abbreviatedIRI="lis:System"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/ObservationOfEarthFault"/>
-        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/ObservationOfOvercurrent"/>
-        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/ObservationOfShortCircuit"/>
-        <Class abbreviatedIRI="fmea:FailureModeObservation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/Sump"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/TerminalBoxCables"/>
-        <Class abbreviatedIRI="fso:Component"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/VentilationSystem"/>
-        <Class abbreviatedIRI="lis:System"/>
-    </SubClassOf>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Chamber</IRI>
-        <Literal>Chamber</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/CollectionChamber</IRI>
-        <Literal>Collection chamber</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/CondensateSystem</IRI>
-        <Literal>Condensate System</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/CoolingDoor</IRI>
-        <Literal>Cooling door</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/DrainPipe</IRI>
-        <Literal>Drain pipe</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/EmergencyDoorsSystem</IRI>
-        <Literal>Emergency Doors System</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Fan</IRI>
-        <Literal>Fan</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Filter</IRI>
-        <Literal>Filter </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/HeatExchanger</IRI>
-        <Literal>Heat exchanger</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Heater</IRI>
-        <Literal>Heater</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/HeaterSystem</IRI>
-        <Literal>Heater System</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/HeatingAttemptAndNoHeat</IRI>
-        <Literal>Heating attempt and no heat</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/HeatingAttemptAndPartialHeat</IRI>
-        <Literal>Heating attempt and partial heat</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/HeatingProcess</IRI>
-        <Literal>Heating Process</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/LeakageSystem</IRI>
-        <Literal>Leakage System</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/ObservationOfEarthFault</IRI>
-        <Literal>&apos;Observation of earth fault&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/ObservationOfOvercurrent</IRI>
-        <Literal>&apos;Observation of over current&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/ObservationOfShortCircuit</IRI>
-        <Literal>&apos;Observation of short circuit&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/Sump</IRI>
-        <Literal>Sump</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/TerminalBoxCables</IRI>
-        <Literal>Terminal box &amp; cables</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>/VentilationSystem</IRI>
-        <Literal>Ventilation System</Literal>
-    </AnnotationAssertion>
-</Ontology>
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:asset="http://www.semanticweb.org/asset/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/asset"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/hasFunctionalPart -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/hasFunctionalPart"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/hasParticipant"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/realizedIn -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/realizedIn"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/representedBy -->
+
+    <owl:ObjectProperty rdf:about="http://standards.iso.org/iso/15926/part14/representedBy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/hasMalfunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fmea-iso/hasMalfunction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/resultsIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fmea-iso/resultsIn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/Function -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/Function"/>
+    
+
+
+    <!-- http://standards.iso.org/iso/15926/part14/System -->
+
+    <owl:Class rdf:about="http://standards.iso.org/iso/15926/part14/System"/>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/Chamber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/Chamber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Chamber</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/CollectionChamber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/CollectionChamber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/asset/Chamber"/>
+        <rdfs:label>Collection chamber</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/CondensateSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/CondensateSystem">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/System"/>
+        <rdfs:label>Condensate System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/CoolingDoor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/CoolingDoor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Cooling door</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/DrainPipe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/DrainPipe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Drain pipe</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/EmergencyDoorsSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/EmergencyDoorsSystem">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/System"/>
+        <rdfs:label>Emergency Doors System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/FailureDueToEarthFault -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/FailureDueToEarthFault">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/FailureDueToOvercurrent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/FailureDueToOvercurrent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/FailureDueToShortCircuit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/FailureDueToShortCircuit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/Fan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/Fan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Fan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/Filter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/Filter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Filter </rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/HeatExchanger -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/HeatExchanger">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Heat exchanger</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/Heater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/Heater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Heater</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/HeaterSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/HeaterSystem">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/System"/>
+        <rdfs:label>Heater System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/HeatingAttemptAndNoHeat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/HeatingAttemptAndNoHeat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/asset/HeatingProcess"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEffect"/>
+        <rdfs:label>Heating attempt and no heat</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/HeatingAttemptAndPartialHeat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/HeatingAttemptAndPartialHeat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/asset/HeatingProcess"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureEffect"/>
+        <rdfs:label>Heating attempt and partial heat</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/HeatingProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/HeatingProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Process"/>
+        <rdfs:label>Heating Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/LeakageSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/LeakageSystem">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/System"/>
+        <rdfs:label>Leakage System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/ObservationOfEarthFault -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/ObservationOfEarthFault">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureModeObservation"/>
+        <rdfs:comment>&apos;Observation of earth fault&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/ObservationOfOvercurrent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/ObservationOfOvercurrent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureModeObservation"/>
+        <rdfs:comment>&apos;Observation of over current&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/ObservationOfShortCircuit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/ObservationOfShortCircuit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fmea-iso/FailureModeObservation"/>
+        <rdfs:comment>&apos;Observation of short circuit&apos; is a subclass of &apos;FailureModeObservation&apos;. It refers to the &apos;Failure Mode&apos; column in Table 2.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/Sump -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/Sump">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Sump</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/TerminalBoxCables -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/TerminalBoxCables">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/functional-system-ontology/Component"/>
+        <rdfs:label>Terminal box &amp; cables</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/asset/VentilationSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/asset/VentilationSystem">
+        <rdfs:subClassOf rdf:resource="http://standards.iso.org/iso/15926/part14/System"/>
+        <rdfs:label>Ventilation System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureEffect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureEffect"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureEvent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FailureModeObservation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FailureModeObservation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FinalFailureEffect -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FinalFailureEffect"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/FunctionalFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/FunctionalFailure"/>
+    
+
+
+    <!-- http://www.semanticweb.org/fmea-iso/Malfunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fmea-iso/Malfunction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/functional-system-ontology/AncillarySystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/functional-system-ontology/AncillarySystem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/functional-system-ontology/Component -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/functional-system-ontology/Component"/>
+    
+
+
+    <!-- http://www.semanticweb.org/functional-system-ontology/Process -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/functional-system-ontology/Process"/>
+</rdf:RDF>
 
 
 

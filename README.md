@@ -31,4 +31,4 @@ The ontoloty population script can be run using [Python](https://www.python.org/
 - fmea_component_column_name = <the column name in the FMEA spreasheet that contains unique asset identifiers (i.e. FunctionalLocation)>
 - malfunction_column_name = <the column name in the FMEA spreasheet that contains a malfuction description (i.e. FailureMechanism)>
 
-Additionally, you will need to create a new folder in your project's directory called "output". This is where the populated ontology will be stored after the script has been run.
+Additionally, you will need to create a new folder in your project's directory called "output". This is where the populated ontology will be stored after the script has been run. Open the asset.owl file in [Protégé](https://protege.stanford.edu/) to see the populated ontology. To test the reasoning capability, add a individual in the asset.owl file called "failure_event". Create a new triple, "failure_event realizedIn x" where x is any malfunction in the populated ontology. Now, run the Hermit reasoner and ovserve which components are now of type "ObjectInFaultState"

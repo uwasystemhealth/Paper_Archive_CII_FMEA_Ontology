@@ -3,7 +3,5 @@
     <uri id="Imports Wizard Entry" name="http://standards.iso.org/iso/15926/part14/1.1" uri="LIS-14.ttl"/>
     <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/functional-system-ontology" uri="functional-system-ontology.ttl"/>
     <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/fmea-iso" uri="fmea-iso.ttl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1619073378647" name="http://www.industrialontologies.org/IOFAnnotationVocabulary/" uri="IOF_AnnotationsVocabulary.rdf"/>
-    </group>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
 </catalog>

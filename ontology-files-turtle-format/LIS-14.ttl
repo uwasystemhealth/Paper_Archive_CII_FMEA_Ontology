@@ -14,7 +14,6 @@
 
 <http://standards.iso.org/iso/15926/part14> a owl:Ontology ;
 	owl:versionIRI lis:1.1 ;
-	owl:imports <http://www.industrialontologies.org/IOFAnnotationVocabulary/> ;
 	pav:previousVersion lis:1.0 ;
 	rdfs:comment "The ISO 15926-14 upper ontology is an OWL 2 DL rendering of the ISO 15926-2 data model." ;
 	rdfs:label "ISO 15926-14 upper ontology" ;
